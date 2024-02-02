@@ -1,6 +1,5 @@
 # Imported necessary libraries and modules
 from tkinter import *
-from array import *
 import string
 import random
 
