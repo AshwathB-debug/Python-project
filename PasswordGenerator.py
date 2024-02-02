@@ -1,5 +1,6 @@
 # Imported necessary libraries and modules
 from tkinter import *
+from array import *
 import string
 import random
 
@@ -29,13 +30,15 @@ def password():
         generatedPassword = "".join(random.choice(string.ascii_letters + string.digits + string.punctuation) for number in range(slider.get()))
         passwordLabel = Label(win, text = "Bad password! Please select a higher number for maximum security. Your password is: \n" + generatedPassword, font = 20)
         passwordLabel.pack()
-        print(generatedPassword)
+        print(generatedPassword) 
+        
     elif slider.get() >= 6 and slider.get() < 11:
         win.configure(bg = "dark orange")
         generatedPassword = "".join(random.choice(string.ascii_letters + string.digits + string.punctuation) for number in range(slider.get()))
         passwordLabel = Label(win, text = "Weak password! Please select a higher number for maximum security. Otherwise your password is: \n" + generatedPassword, font = 20)
         passwordLabel.pack()
         print(generatedPassword)
+        
     else:
         win.configure(bg = "green")
         generatedPassword = "".join(random.choice(string.ascii_letters + string.digits + string.punctuation) for number in range(slider.get()))
@@ -49,6 +52,7 @@ The clearButton function is used to destroy the label, changing the state of the
 def clearButton():
     passwordLabel.destroy()
     sliderButton["state"] = NORMAL
+    
 
 """
 The main function is used to create the window, the name of the GUI app, the size of the GUI app, and to create the base of the whole GUI like labels,
@@ -57,7 +61,7 @@ slider, buttons, and string variables.
 if __name__ == "__main__":
     win = Tk()  
     win.title("Password Generator")
-    win.geometry("1920x1080")
+    win.geometry("1600x900")
     
     photo = PhotoImage(file = "C:/Users/ashwa/OneDrive/Desktop/Python project/password.png")
     photoLabel = Label(win, image = photo)
@@ -76,7 +80,6 @@ if __name__ == "__main__":
     
     clear = Button(win, text = "Clear", command = clearButton)
     clear.pack()
-    
 
     win.mainloop()
     print("Thank you for using my password generator!")
